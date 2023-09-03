@@ -11,7 +11,7 @@ server: deps
 	cd src/ngrok && go install -tags '$(BUILDTAGS)' ngrok/main/ngrokd
 
 fmt:
-	cd src/ngrok &&  go fmt ngrok/...
+	cd src/ngrok && go fmt ngrok/...
 
 client: deps
 	cd src/ngrok && go install -tags '$(BUILDTAGS)' ngrok/main/ngrok
@@ -64,7 +64,7 @@ dist: release-all
 	cd src/ngrok/main/ngrok && GOOS=linux GOARCH=arm64 go build -tags release -o $(DISTDIR)/linux/ngrok_arm64 ngrok/main/ngrok
 
 clean:
-	go clean -i -r ngrok/...
+	cd src/ngrok && go clean -i -r ngrok/...
 	rm -rf src/ngrok/client/assets/ src/ngrok/server/assets/
 
 contributors:

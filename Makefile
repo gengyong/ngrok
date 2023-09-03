@@ -11,7 +11,7 @@ server: deps
 	cd src/ngrok && go install -tags '$(BUILDTAGS)' ../ngrok/main/ngrokd
 
 fmt:
-	go fmt ngrok/...
+	cd src/ngrok &&  go fmt ngrok/...
 
 client: deps
 	cd src/ngrok && go install -tags '$(BUILDTAGS)' ngrok/main/ngrok

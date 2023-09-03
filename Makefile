@@ -5,10 +5,10 @@ BUILDTAGS=debug
 default: all
 
 deps: assets
-	cd src/ngrok && go install -tags '$(BUILDTAGS)' -v ngrok/...
+	cd src/ngrok && go install -tags '$(BUILDTAGS)' ngrok/...
 
 server: deps
-	cd src/ngrok && go install -tags '$(BUILDTAGS)' ../ngrok/main/ngrokd
+	cd src/ngrok && go install -tags '$(BUILDTAGS)' ngrok/main/ngrokd
 
 fmt:
 	cd src/ngrok &&  go fmt ngrok/...
@@ -24,7 +24,9 @@ ifeq ($(wildcard src/ngrok/go.mod),)
 endif
 
 bin/go-bindata: go-mod
+ifeq ($(wildcard bin/go-bindata),)
 	GOOS="" GOARCH="" go install github.com/jteeuwen/go-bindata/go-bindata@latest
+endif
 
 client-assets: bin/go-bindata
 	bin/go-bindata -nomemcopy -pkg=assets -tags=$(BUILDTAGS) \

@@ -1,6 +1,11 @@
 *.swp
 bin/
 pkg/
+keys/
+dist/
+assets/client/tls/ngrokroot.crt
+assets/server/tls/snakeoil.crt
+assets/server/tls/snakeoil.key
 src/code.google.com
 src/github.com
 src/bitbucket.org
@@ -8,3 +13,5 @@ src/launchpad.net
 src/gopkg.in
 src/ngrok/client/assets/
 src/ngrok/server/assets/
+src/ngrok/go.mod
+src/ngrok/go.sum
